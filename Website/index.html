@@ -4,16 +4,49 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>GameCenter</title>
   </head>
+  <header>
+    <nav>
+      <!--https://pixabay.com/vectors/controller-video-game-flat-x-box-1486898/-->
+      <img src="img/logo-2.png" alt="Logo" />
+      <ul>
+        <a href="#home"><li>HOME</li></a>
+        <a href="#games"><li>GAMES</li></a>
+        <a href="#contact"><li>CONTACT</li></a>
+      </ul>
+    </nav>
+  </header>
   <body>
-    <nav>This is a nav</nav>
-    <main>
+    <main id="home">
       <h1>GameCenter</h1>
-      This is the main Page
+      <p>This is the main Page</p>
+      <a href="#games"><button id="explore">Explore</button></a>
     </main>
-    <footer>this is a footer</footer>
-    <link rel="stylesheet" href="style.css" />
+    <div id="games">
+      <h1>Games</h1>
+      <div id="battleships">
+        <!--https://pixabay.com/photos/game-console-sony-video-games-6603120/-->
+        <div class="img-container">
+          <img src="img/videogames-background.jpg" alt="Battleships image" />
+        </div>
+        <h4>DESCRIPTION</h4>
+        <p>Battleships is a</p>
+        <a href=""><button>Play</button></a>
+      </div>
+      <div id="pong"></div>
+    </div>
+    <div id="contact">
+      <h1>Contact</h1>
+      <ul>
+        <li>F. Neiger: @</li>
+        <li>Y. Karakushi: @</li>
+        <li>V. Belluscio: @</li>
+        <li>M. Jakob: @</li>
+      </ul>
+    </div>
     <script type="text/javascript" src="script.js"></script>
   </body>
+  <footer><p>All rights reserved &copy 2022.</p></footer>
 </html>
