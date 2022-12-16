@@ -146,7 +146,12 @@ body > #games {
   background-position: center;
 }
 
-body > #games > #battleships {
+body > #games > div {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+body > #games > div > div {
   width: 40vw;
   background-color: var(--main-dark);
   border-radius: 20px;
@@ -154,26 +159,26 @@ body > #games > #battleships {
   margin: 10px;
 }
 
-body > #games > #battleships > .img-container {
+body > #games > div > div > .img-container {
   width: 100%;
   height: 25vh;
 
   border-bottom: 2px var(--main-orange) solid;
 }
 
-body > #games > #battleships > .img-container > img {
+body > #games > div > div > .img-container > img {
   width: 100%;
   height: 25vh;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
 
-body > #games > #battleships > h4 {
+body > #games > div > div > h4 {
   color: var(--main-orange);
   padding-left: 1rem;
 }
 
-body > #games > #battleships > p {
+body > #games > div > div > p {
   padding-left: 1rem;
   color: var(--main-white);
 }
