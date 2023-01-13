@@ -12,7 +12,7 @@
   --main-orange: #d65a31;
   --main-orange-accent: #e68869;
 
-  --main-white: #d1d1d1;
+  --main-white: #c3c2c2;
   --color-shadow: rgb(63, 63, 63);
 }
 
@@ -117,6 +117,12 @@ body > main {
   background-color: var(--main-dark);
 }
 
+body > main > p {
+  color: var(--main-white);
+  width: 50%;
+  margin: 0 auto;
+}
+
 #explore {
   color: var(--main-white);
   padding: 1.5rem;
@@ -125,7 +131,7 @@ body > main {
   border: none;
   border-radius: 8px;
   margin: 2rem auto;
-  margin-top: 20rem;
+  margin-top: 5rem;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -134,6 +140,10 @@ body > main {
   box-shadow: 2px 2px 5px var(--color-shadow);
   transition: all 0.3s;
   text-align: center;
+}
+
+#emoticons {
+  font-size: xx-large;
 }
 /*======================= Games =======================*/
 
@@ -152,7 +162,7 @@ body > #games > div {
 }
 
 body > #games > div > div {
-  width: 40vw;
+  width: 30vw;
   background-color: var(--main-dark);
   border-radius: 20px;
   border: 3px var(--main-orange) solid;
@@ -188,6 +198,7 @@ body > #contact {
   background-color: var(--main-dark);
   scroll-margin-top: 15vh;
   height: 40vh;
+  color: var(--main-white);
 }
 
 /*====================== Footer ======================*/
