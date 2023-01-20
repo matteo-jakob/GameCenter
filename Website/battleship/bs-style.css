@@ -107,7 +107,7 @@ nav > ul > a {
 
 #guide {
   margin-top: 15vh;
-  background-color: rgb(72, 72, 72);
+  background-color: var(--main-dark);
   height: calc(100vh - 15vh);
   display: flex;
   flex-direction: column;
@@ -115,6 +115,7 @@ nav > ul > a {
 #guide > p {
   color: var(--main-white);
   padding: 10rem;
+  padding-bottom: 2rem;
 }
 
 #guide > a {
@@ -126,7 +127,7 @@ nav > ul > a {
 #game {
   height: 85vh;
   width: 100vw;
-  background-color: rgb(72, 72, 72);
+  background-color: var(--main-darkest);
   display: grid;
 }
 
