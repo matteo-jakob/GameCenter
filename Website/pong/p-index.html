@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="p-style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="p-style.css" />
+    <title>Pong</title>
   </head>
   <body>
-    <canvas id="game" width="1500" height="700"></canvas>
-
-    <script src="app.js">
-     
-    </script>
+    <nav>
+      <img src="../img/logo-2.png" alt="Logo" />
+      <ul id="menu">
+        <a href="../index.html#home"><li>HOME</li></a>
+        <a href="../index.html#games"><li>GAMES</li></a>
+        <a href="../index.html#contact"><li>CONTACT</li></a>
+      </ul>
+    </nav>
+    <div id="guide">
+      <h1>Guide</h1>
+      <p>pong is a ...</p>
+      <a href="#game"><button>Start</button></a>
+    </div>
+    <div id="gameDiv">
+      <canvas id="game" width="1500" height="700"></canvas>
+    </div>
+    <script src="p-script.js"></script>
   </body>
 </html>
