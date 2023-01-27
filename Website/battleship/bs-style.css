@@ -114,8 +114,8 @@ nav > ul > a {
 }
 #guide > p {
   color: var(--main-white);
-  padding: 10rem;
-  padding-bottom: 2rem;
+  padding: 10vw;
+  padding-bottom: 5vh;
 }
 
 #guide > a {
@@ -128,9 +128,45 @@ nav > ul > a {
   height: 85vh;
   width: 100vw;
   background-color: var(--main-darkest);
-  display: grid;
+  display: flex;
+  flex-direction: column;
 }
 
-#game > p {
-  color: var(--main-white);
+#boards {
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+}
+
+.container {
+  width: 90%;
+  height: 90%;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 5vh 5vw;
+  grid-template-areas: "a b";
+  margin: 0 auto;
+  padding-bottom: 5vh;
+}
+
+#left-board {
+  grid-area: a;
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+#right-board {
+  grid-area: b;
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.grid-cell {
+  border: 1px solid var(--main-white);
 }

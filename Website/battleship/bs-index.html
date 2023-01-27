@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="bs-style.css" />
-    <script defer src="bs-script.js"></script>
     <title>Battleships</title>
   </head>
   <body>
@@ -37,7 +36,15 @@
       <a href="#game"><button>Start</button></a>
     </div>
     <div id="game">
-      <p>THIS IS THE GAME</p>
+      <div id="boards">
+        <h1>Your Board</h1>
+        <h1>Enemy Board</h1>
+      </div>
+      <div class="container">
+        <div id="left-board"></div>
+        <div id="right-board"></div>
+      </div>
     </div>
+    <script src="bs-script.js"></script>
   </body>
 </html>
