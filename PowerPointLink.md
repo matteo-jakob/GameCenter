@@ -1,1 +1,1 @@
-https://bbbaden-my.sharepoint.com/:p:/g/personal/f_neiger_inf21_stud_bbbaden_ch/EcsEuZigiW5Pv1IJ52hHeXEBZjL30_1nK0uEDj5yAEDFcg?e=dZdphL
+[https://bbbaden-my.sharepoint.com/:p:/g/personal/f_neiger_inf21_stud_bbbaden_ch/EcsEuZigiW5Pv1IJ52hHeXEBZjL30_1nK0uEDj5yAEDFcg?e=dZdphL](https://bbbaden-my.sharepoint.com/:p:/r/personal/f_neiger_inf21_stud_bbbaden_ch/Documents/GameCenter%20(1).pptx?d=w8b4b36bec0f347bba1f75336eb2e0af2&csf=1&web=1&e=SK5mB4)
