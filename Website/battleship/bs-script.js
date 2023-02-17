@@ -41,6 +41,7 @@ function StartGame() {
   PlacePiecesRight();
 }
 function PlacePiecesLeft() {
+  let count = 0;
   let count5 = 0;
   let count4 = 0;
   let count3 = 0;
@@ -51,6 +52,10 @@ function PlacePiecesLeft() {
   let has2 = false;
   let countDone = false;
   while (!countDone) {
+    count++;
+    if (count > 1000) {
+      break;
+    }
     let i = getRandom(99);
     if (!has5) {
       if (i % 10 <= 5) {
@@ -96,6 +101,7 @@ function PlacePiecesLeft() {
 }
 
 function PlacePiecesRight() {
+  let count = 0;
   let count5 = 0;
   let count4 = 0;
   let count3 = 0;
@@ -106,12 +112,16 @@ function PlacePiecesRight() {
   let has2 = false;
   var countDone = false;
   while (!countDone) {
+    count++;
+    if (count > 1000) {
+      break;
+    }
     let i = getRandom(99);
     if (!has5) {
       if (i % 10 <= 5) {
         if (
           !isOccupiedRight(i, 5) &&
-          !isAdjacentCellOccupied(i, 3, rightCells)
+          !isAdjacentCellOccupied(i, 5, rightCells)
         ) {
           PlaceRight(i, 5);
           count5++;
@@ -123,7 +133,7 @@ function PlacePiecesRight() {
       if (i % 10 <= 6) {
         if (
           !isOccupiedRight(i, 4) &&
-          !isAdjacentCellOccupied(i, 3, rightCells)
+          !isAdjacentCellOccupied(i, 4, rightCells)
         ) {
           PlaceRight(i, 4);
           count4++;
@@ -145,7 +155,7 @@ function PlacePiecesRight() {
       if (i % 10 <= 8) {
         if (
           !isOccupiedRight(i, 2) &&
-          !isAdjacentCellOccupied(i, 3, rightCells)
+          !isAdjacentCellOccupied(i, 2, rightCells)
         ) {
           PlaceRight(i, 2);
           count2++;
@@ -206,7 +216,6 @@ function PlaceRight(i, sLength) {
 function SwitchTurns() {
   currentTurn = currentTurn == 0 ? 1 : 0;
   if (currentTurn == 1) {
-    sleep(2000);
     let random = getRandom(99);
     ComputerAttack(random);
   }
@@ -258,32 +267,32 @@ function ComputerAttack(i) {
 function isAdjacentCellOccupied(currentSquare, shipLength, board) {
   currentSquare = parseInt(currentSquare);
   // check left side
-  for (let i = 1; i < shipLength; i++) {
-    let cell = board[currentSquare - i];
+  for (let i = currentSquare; i < currentSquare + shipLength; i++) {
+    let cell = board[i - 1];
     if (!cell || cell.getAttribute("isOccupied") == "1") {
       return true;
     }
   }
 
   // check right side
-  for (let i = 1; i < shipLength; i++) {
-    let cell = board[currentSquare + i];
+  for (let i = currentSquare; i < currentSquare + shipLength; i++) {
+    let cell = board[i];
     if (!cell || cell.getAttribute("isOccupied") == "1") {
       return true;
     }
   }
 
   // check top side
-  for (let i = 1; i < shipLength; i++) {
-    let cell = board[currentSquare - i * 10];
+  for (let i = currentSquare; i < currentSquare + shipLength; i++) {
+    let cell = board[i - 10];
     if (!cell || cell.getAttribute("isOccupied") == "1") {
       return true;
     }
   }
 
   // check bottom side
-  for (let i = 1; i < shipLength; i++) {
-    let cell = board[currentSquare + i * 10];
+  for (let i = currentSquare; i < currentSquare + shipLength; i++) {
+    let cell = board[i + 10];
     if (!cell || cell.getAttribute("isOccupied") == "1") {
       return true;
     }
@@ -292,5 +301,12 @@ function isAdjacentCellOccupied(currentSquare, shipLength, board) {
   return false;
 }
 
-//https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+function CheckAllShipsDestoryed(cells) {
+  cells.forEach((element) => {
+    if (element.getAttribute("isOccupied") == 1) {
+      if (element.getAttribute("isHit") == 0) return false;
+    } else {
+      return true;
+    }
+  });
+}
