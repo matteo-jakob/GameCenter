@@ -224,23 +224,22 @@ function SwitchTurns() {
 function Attacked(e) {
   if (currentTurn == 0) {
     let cnt = 0;
-    while (true) {
-      if (e.getAttribute("isHit") == 0) {
-        if (e.getAttribute("isOccupied") == 1) {
-          e.style.background = hitColor;
-          e.setAttribute("isHit", "1");
-        } else if (e.getAttribute("isOccupied") == 0) {
-          e.style.background = missColor;
-          e.setAttribute("isHit", "1");
-          break;
-        } else {
-          alert("WHAT ARE YOU THINKING COMMANDER?!\nWe already hit that spot.");
+    if (e.getAttribute("isHit") == 0) {
+      if (e.getAttribute("isOccupied") == 1) {
+        e.style.background = hitColor;
+        e.setAttribute("isHit", "1");
+        if (CheckAllShipsDestoryed(rightCells)) {
+          alert("Player Won!");
+          location.reload();
         }
+      } else if (e.getAttribute("isOccupied") == 0) {
+        e.style.background = missColor;
+        e.setAttribute("isHit", "1");
+        SwitchTurns();
+      } else {
+        alert("WHAT ARE YOU THINKING COMMANDER?!\nWe already hit that spot.");
       }
-      cnt++;
-      if (cnt > 1000) break;
     }
-    SwitchTurns();
   } else {
     alert("Await your turn!");
   }
@@ -253,6 +252,10 @@ function ComputerAttack(i) {
         //computer hit
         leftCells[i].style.background = hitColor;
         leftCells[i].setAttribute("isHit", "1");
+        if (CheckAllShipsDestoryed(leftCells)) {
+          alert("Computer Won!");
+          location.reload();
+        }
       } else if (leftCells[i].getAttribute("isOccupied") == 0) {
         leftCells[i].style.background = missColor;
         leftCells[i].setAttribute("isHit", "1");
@@ -276,7 +279,7 @@ function isAdjacentCellOccupied(currentSquare, shipLength, board) {
 
   // check right side
   for (let i = currentSquare; i < currentSquare + shipLength; i++) {
-    let cell = board[i];
+    let cell = board[i + 1];
     if (!cell || cell.getAttribute("isOccupied") == "1") {
       return true;
     }
@@ -302,11 +305,14 @@ function isAdjacentCellOccupied(currentSquare, shipLength, board) {
 }
 
 function CheckAllShipsDestoryed(cells) {
-  cells.forEach((element) => {
-    if (element.getAttribute("isOccupied") == 1) {
-      if (element.getAttribute("isHit") == 0) return false;
-    } else {
-      return true;
+  let cellsDestroyed = 0;
+  for (let i = 0; i < cells.length; i++)
+    if (cells[i].getAttribute("isOccupied") == 1) {
+      if (cells[i].getAttribute("isHit") == 0) {
+        return false;
+      } else if (cells[i].getAttribute("isHit") == 1) {
+        cellsDestroyed++;
+      }
+      if (cellsDestroyed == 30) return true;
     }
-  });
 }
