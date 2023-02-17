@@ -57,7 +57,7 @@ function moveBall() {
   if (ballX + ballSpeedX < paddleWidth + ballRadius) {
     if (ballY > paddle1Y && ballY < paddle1Y + paddleHeight) {
       ballSpeedX = -ballSpeedX;
-      if (ballSpeedX < 10) {
+      if (ballSpeedX < 13) {
         ballSpeedX++;
         ballSpeedY++;
       }
@@ -69,7 +69,7 @@ function moveBall() {
 
   if (ballX + ballSpeedX > canvas.width - paddleWidth - ballRadius) {
     if (ballY > paddle2Y && ballY < paddle2Y + paddleHeight) {
-      if (ballSpeedX < 10) {
+      if (ballSpeedX < 13) {
         ballSpeedX++;
         ballSpeedY++;
       }
