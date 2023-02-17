@@ -208,7 +208,6 @@ function PlaceRight(i, sLength) {
     for (let o = 0; o < sLength; o++) {
       let cell = rightCells[i + o];
       cell.setAttribute("isOccupied", "1");
-      cell.style.background = leftShipColor;
     }
   }
 }

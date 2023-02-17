@@ -57,6 +57,10 @@ function moveBall() {
   if (ballX + ballSpeedX < paddleWidth + ballRadius) {
     if (ballY > paddle1Y && ballY < paddle1Y + paddleHeight) {
       ballSpeedX = -ballSpeedX;
+      if (ballSpeedX <= 10) {
+        ballSpeedX++;
+        ballSpeedY++;
+      }
     } else {
       player2Score++;
       resetBall();
@@ -65,6 +69,10 @@ function moveBall() {
 
   if (ballX + ballSpeedX > canvas.width - paddleWidth - ballRadius) {
     if (ballY > paddle2Y && ballY < paddle2Y + paddleHeight) {
+      if (ballSpeedX <= 10) {
+        ballSpeedX++;
+        ballSpeedY++;
+      }
       ballSpeedX = -ballSpeedX;
     } else {
       player1Score++;
@@ -76,22 +84,24 @@ function moveBall() {
 function resetBall() {
   ballX = canvas.width / 2;
   ballY = canvas.height / 2;
+  ballSpeedX = 3;
+  ballSpeedY = 3;
   ballSpeedX = -ballSpeedX;
 }
 
 document.addEventListener("keydown", function (event) {
   if (event.keyCode === 87) {
-    paddle1Y -= 10;
+    paddle1Y -= 60;
   } else if (event.keyCode === 83) {
-    paddle1Y += 10;
+    paddle1Y += 60;
   }
 });
 
 document.addEventListener("keydown", function (event) {
   if (event.keyCode === 38) {
-    paddle2Y -= 10;
+    paddle2Y -= 60;
   } else if (event.keyCode === 40) {
-    paddle2Y += 10;
+    paddle2Y += 60;
   }
 });
 
